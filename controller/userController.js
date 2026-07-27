@@ -63,7 +63,7 @@ async function login(req, res) {
                 message: 'Email atau password salah' 
             });
         }
-        
+
         const isMatch = await bcrypt.compare(password, user.password);
 
         if (!isMatch) {
@@ -82,8 +82,8 @@ async function login(req, res) {
             expiresIn: process.env.JWT_EXPIRES_IN 
         }
     );
-
-        res.status(200).json({
+    
+    res.status(200).json({
             message: 'Login berhasil',
             token
         });
