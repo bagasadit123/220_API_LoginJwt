@@ -53,7 +53,7 @@ async function login(req, res) {
                 message: 'Email dan password wajib di isi' 
             });
         }
-        
+
         const user = await User.findOne({
             where: { email }
         });
@@ -63,7 +63,7 @@ async function login(req, res) {
                 message: 'Email atau password salah' 
             });
         }
-
+        
         const isMatch = await bcrypt.compare(password, user.password);
 
         if (!isMatch) {
